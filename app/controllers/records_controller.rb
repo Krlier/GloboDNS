@@ -60,7 +60,7 @@ class RecordsController < ApplicationController
       params[:record][label] = params[:record][label].to_s.gsub(/^[ \t]/,'') unless value.nil?
     end
 
-    @record = params[:record][:type].constantize.new(params[:record])
+    @record = params[:record][:type].constantize.new(params[:record]) #nohusky
     @record.domain_id = params[:domain_id]
 
     valid = (!@record.errors.any? and @record.valid?)
